@@ -8,14 +8,26 @@ class Example extends React.Component {
     text: ""
   };
 
-  takeText = event => {
+  basicInput = event => {
     this.setState({ text: event.target.value });
   };
 
+  trickInput = event => {
+    this.setState({ text: "Ha ha nope" });
+  };
+  lettersOnlyInput = event => {
+    let text = event.target.value;
+    text = text.replace(/[0-9]/g, "");
+    this.setState({ text });
+  };
   render() {
     return (
       <>
-        <input type="text" value={this.state.text} onChange={this.takeText} />
+        <input
+          type="text"
+          value={this.state.text}
+          onChange={this.lettersOnlyInput}
+        />
       </>
     );
   }
