@@ -3,14 +3,23 @@ import ReactDOM from "react-dom";
 
 import "./styles.css";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
+class Example extends React.Component {
+  state = {
+    text: ""
+  };
+
+  takeText = event => {
+    this.setState({ text: event.target.value });
+  };
+
+  render() {
+    return (
+      <>
+        <input type="text" value={this.state.text} onChange={this.takeText} />
+      </>
+    );
+  }
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<Example />, rootElement);
