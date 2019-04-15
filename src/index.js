@@ -33,5 +33,8 @@ class Example extends React.Component {
   }
 }
 
+const EasyInput = () => {
+  return <input type="text" />;
+};
 const rootElement = document.getElementById("root");
 ReactDOM.render(<Example />, rootElement);
