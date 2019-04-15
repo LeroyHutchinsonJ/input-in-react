@@ -32,9 +32,23 @@ class Example extends React.Component {
     );
   }
 }
-
 const EasyInput = () => {
   return <input type="text" />;
 };
+
+class RefInput extends React.Component {
+  showValue = () => {
+    alert(`Input Contains: ${this.input.value}`);
+  };
+
+  render() {
+    return (
+      <div>
+        <input type="text" ref={currentValue => (this.input = currentValue)} />
+        <button onClick={this.showValue}>Click Me!</button>
+      </div>
+    );
+  }
+}
 const rootElement = document.getElementById("root");
-ReactDOM.render(<Example />, rootElement);
+ReactDOM.render(<RefInput />, rootElement);
